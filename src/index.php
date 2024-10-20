@@ -26,9 +26,6 @@
                 <h2>Markdown Preview</h2>
                 <div id="preview" class="overflow-auto"></div>
             </div>
-            <div id="html-output" class="overflow-auto">
-                <h2>HTML Output</h2>
-            </div>
         </div>
     </div>
 
