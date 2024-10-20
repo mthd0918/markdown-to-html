@@ -38,14 +38,9 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="outputTabsContent">
-                    <div class="tab-pane fade show active" id="preview" role="tabpanel" aria-labelledby="preview-tab"></div>
-                    <div class="tab-pane fade" id="html-content" role="tabpanel" aria-labelledby="html-tab"></div>
+                        <div class="tab-pane fade show active" id="preview" role="tabpanel" aria-labelledby="preview-tab"></div>
+                        <div class="tab-pane fade" id="html-content" role="tabpanel" aria-labelledby="html-tab"></div>
                 </div>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-12 text-center">
-                <button id="downloadBtn" class="btn btn-primary">Download HTML</button>
             </div>
         </div>
     </div>
@@ -70,27 +65,6 @@
             
             editor.onDidChangeModelContent(updateContent);
             updateContent();
-
-            document.getElementById('downloadBtn').addEventListener('click', function() {
-                var html = document.getElementById('html-content').textContent;
-                fetch('download.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: 'html=' + encodeURIComponent(html)
-                })
-                .then(response => response.blob())
-                .then(blob => {
-                    var url = window.URL.createObjectURL(blob);
-                    var a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'converted.html';
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                });
-            });
         });
     </script>
 </body>
